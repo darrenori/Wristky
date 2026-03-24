@@ -1,0 +1,64 @@
+<svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="200" rx="0" fill="#75B7B9"/>
+  <path
+    d="M34 174V54C34 46 42 39 53 33C75 20 104 18 127 24C146 29 164 41 171 59C177 75 175 95 164 111C156 123 149 136 149 149"
+    stroke="white"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M43 52C66 15 118 8 152 27"
+    stroke="white"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  <path
+    d="M58 47C66 34 84 25 105 24"
+    stroke="white"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  <path
+    d="M79 48C89 36 104 29 118 28"
+    stroke="white"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  <path
+    d="M34 138C52 116 67 101 90 91C113 81 129 87 145 100C155 108 164 111 176 110"
+    stroke="white"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M99 134C117 120 139 118 156 124C170 129 181 139 186 154"
+    stroke="white"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M161 159C145 162 127 161 112 154"
+    stroke="white"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="49" cy="106" r="8" stroke="white" stroke-width="6"/>
+  <path
+    d="M185 88V150"
+    stroke="white"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <path
+    d="M185 150C191 149 195 153 195 158C195 164 190 168 184 168C179 168 175 165 174 161"
+    stroke="white"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="185" cy="90" r="3" fill="#75B7B9" stroke="white" stroke-width="3"/>
+</svg>

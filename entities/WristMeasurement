@@ -1,0 +1,46 @@
+{
+  "name": "WristMeasurement",
+  "type": "object",
+  "properties": {
+    "session_date": {
+      "type": "string",
+      "description": "ISO date string"
+    },
+    "flexion": {
+      "type": "number",
+      "description": "Max flexion angle degrees"
+    },
+    "extension": {
+      "type": "number",
+      "description": "Max extension angle degrees"
+    },
+    "radial": {
+      "type": "number",
+      "description": "Max radial deviation degrees"
+    },
+    "ulnar": {
+      "type": "number",
+      "description": "Max ulnar deviation degrees"
+    },
+    "smoothness_pre": {
+      "type": "number",
+      "description": "Tremor score pre-fatigue 0-100"
+    },
+    "smoothness_post": {
+      "type": "number",
+      "description": "Tremor score post-fatigue 0-100"
+    },
+    "symmetry": {
+      "type": "number",
+      "description": "Left-right symmetry score 0-100"
+    },
+    "endurance_score": {
+      "type": "number",
+      "description": "Steadiness during endurance hold"
+    },
+    "player_name": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

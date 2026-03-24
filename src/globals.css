@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  background: #0a1628;
+  image-rendering: pixelated;
+  min-height: 100dvh;
+  overflow-y: auto;
+  touch-action: pan-y;
+  overscroll-behavior-y: contain;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* ===== PIXEL ART ANIMATIONS ===== */
+
+@keyframes waterShimmer {
+  0%   { background-color: #1e5799; }
+  25%  { background-color: #2463b0; }
+  50%  { background-color: #1a4f8a; }
+  75%  { background-color: #1e5799; }
+  100% { background-color: #1e5799; }
+}
+
+@keyframes bobberBounce {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes mascotBounce {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes fishSwimLeft {
+  0%   { transform: translateX(110vw) scaleX(-1); }
+  100% { transform: translateX(-120px) scaleX(-1); }
+}
+
+@keyframes fishJump {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  40%  { transform: translateY(-60px) rotate(-30deg); opacity: 1; }
+  60%  { transform: translateY(-60px) rotate(30deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+}
+
+@keyframes cloudFloat {
+  0%   { transform: translateX(-200px); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateX(110vw); opacity: 0; }
+}
+
+@keyframes rippleExpand {
+  0%   { transform: scale(0.2); opacity: 0.9; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50%       { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes celebrationPop {
+  0%   { transform: scale(0) rotate(-10deg); }
+  60%  { transform: scale(1.15) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes scanLine {
+  0%   { top: -4px; }
+  100% { top: 100%; }
+}
+
+@keyframes caretBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes waterWave {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-64px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 4px #f4d35e; }
+  50%       { box-shadow: 0 0 12px #f4d35e, 0 0 20px #f4d35e; }
+}
+
+@keyframes rodCast {
+  0%   { transform: rotate(-20deg); }
+  50%  { transform: rotate(20deg); }
+  100% { transform: rotate(-20deg); }
+}
+
+@keyframes netSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes boatRock {
+  0%, 100% {
+    transform: translateY(0px) rotate(calc(var(--boat-rock-angle, 2deg) * -1));
+  }
+  50% {
+    transform: translateY(calc(var(--boat-rock-rise, 2px) * -1)) rotate(var(--boat-rock-angle, 2deg));
+  }
+}
+
+/* ===== READABILITY OVERRIDES ===== */
+/* Ensure important headings are always cream on dark bg */
+.pixel-heading {
+  font-family: 'Press Start 2P', monospace;
+  color: #F4D35E;
+  text-shadow: 2px 2px 0 #5C3317, -1px -1px 0 #2d1b00;
+}
+
+.pixel-body-text {
+  font-family: 'Press Start 2P', monospace;
+  color: #c8d8e8;
+  line-height: 2;
+}
+
+.pixel-label-muted {
+  font-family: 'Press Start 2P', monospace;
+  color: #7a90a8;
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+.pixel-font { font-family: 'Press Start 2P', monospace; }
+.pixel-render { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+.pixel-border {
+  border: 4px solid #2d1b00;
+  box-shadow: 4px 4px 0 #2d1b00;
+}
+
+.pixel-panel {
+  background: #f5e6c8;
+  border: 4px solid #8b5e3c;
+  box-shadow: 4px 4px 0 #5c3d1e, inset 2px 2px 0 rgba(255,255,255,0.4);
+}
+
+.pixel-btn {
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.08s, box-shadow 0.08s;
+  image-rendering: pixelated;
+  -webkit-tap-highlight-color: transparent;
+  color: #ffffff;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.55);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  text-align: center;
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+  -webkit-text-fill-color: currentColor;
+}
+
+.pixel-btn:active {
+  transform: translateY(3px) !important;
+  box-shadow: none !important;
+}
+
+.pixel-btn:focus-visible {
+  outline: 3px solid #F4D35E;
+  outline-offset: 3px;
+}
+
+.pixel-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  filter: saturate(0.7);
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.pixel-btn-green {
+  background: #48b85a;
+  color: #fff;
+  border: 4px solid #245d2d;
+  box-shadow: 0 4px 0 #1a3d1e, 0 0 14px rgba(72,184,90,0.35);
+  padding: 12px 24px;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.5);
+}
+
+.pixel-btn-blue {
+  background: #3c7ee0;
+  color: #fff;
+  border: 4px solid #1f4f98;
+  box-shadow: 0 4px 0 #102b57, 0 0 14px rgba(60,126,224,0.35);
+  padding: 12px 24px;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.5);
+}
+
+.pixel-btn-yellow {
+  background: #f4d35e;
+  color: #2d1b00;
+  border: 4px solid #c9a72e;
+  box-shadow: 0 4px 0 #8b7020;
+  padding: 12px 24px;
+}
+
+.pixel-btn-red {
+  background: #d94a3b;
+  color: #fff;
+  border: 4px solid #9f2f24;
+  box-shadow: 0 4px 0 #641e16, 0 0 14px rgba(217,74,59,0.35);
+  padding: 12px 24px;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.5);
+}
+
+/* ===== NEW HIGH-VISIBILITY TEAL BUTTON ===== */
+.pixel-btn-teal {
+  background: #2ee6c8;
+  color: #ffffff;
+  border: 4px solid #127564;
+  box-shadow: 0 4px 0 #0d5548, 0 0 16px rgba(46,230,200,0.45);
+  padding: 12px 24px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.75);
+  letter-spacing: 0.5px;
+}
+
+.pixel-btn-teal:hover {
+  background: #36ccb6;
+  color: #ffffff;
+}
+
+/* ===== WOOD BUTTON ===== */
+.pixel-btn-wood {
+  background: #b8845c;
+  color: #FFF8E7;
+  border: 4px solid #5C3317;
+  box-shadow: 0 4px 0 #2d1b00, 0 0 14px rgba(184,132,92,0.28);
+  padding: 12px 24px;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.6);
+  letter-spacing: 0.5px;
+}
+
+.pixel-btn-wood:hover {
+  background: #b87d58;
+  color: #ffffff;
+}
+
+/* Override yellow to be more visible — keep cream text */
+.pixel-btn-yellow {
+  background: #E8B800;
+  color: #1a0f00;
+  border: 4px solid #a07800;
+  box-shadow: 0 4px 0 #604800;
+  padding: 12px 24px;
+  font-weight: 700;
+}
+
+.water-bg {
+  background: repeating-linear-gradient(
+    90deg,
+    #1a3f7a 0px, #1a3f7a 16px,
+    #1e5799 16px, #1e5799 32px,
+    #2463b0 32px, #2463b0 48px,
+    #1e5799 48px, #1e5799 64px
+  );
+  animation: waterWave 2s linear infinite;
+}
+
+.stage-complete-anim { animation: celebrationPop 0.4s ease-out forwards; }
+
+.flow-page-shell {
+  width: 100%;
+  min-height: 100dvh;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 204px;
+}
+
+.flow-fixed-footer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - 32px), 392px);
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  margin: 0;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  padding-inline: 2px;
+  overflow: visible;
+  background:
+    linear-gradient(
+      to top,
+      rgba(8,20,38,0.98) 0%,
+      rgba(15,37,64,0.95) 58%,
+      rgba(15,37,64,0.74) 82%,
+      rgba(15,37,64,0) 100%
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(44,90,145,0.16) 0px,
+      rgba(44,90,145,0.16) 4px,
+      rgba(8,20,38,0.12) 4px,
+      rgba(8,20,38,0.12) 8px
+    );
+}
+
+.flow-fixed-footer > * {
+  pointer-events: auto;
+}
+
+.flow-guide-footer {
+  top: 88px;
+  bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  justify-content: flex-start;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-inline: 0;
+  background: none;
+}
+
+.flow-guide-footer .game-instruction-card {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
+.flow-guide-footer .flow-cta {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.flow-cta {
+  width: 100%;
+  min-height: 60px;
+  max-width: none;
+  align-self: stretch;
+  font-size: clamp(12px, 3.6vw, 14px);
+  padding: 14px 18px;
+  border-radius: 0;
+  letter-spacing: 0.4px;
+}
+
+.flow-back-btn {
+  min-height: 42px;
+  padding: 10px 14px;
+  font-size: 9px;
+}
+
+.flow-status-card {
+  width: 100%;
+  background: rgba(8, 20, 38, 0.92);
+  border: 3px solid #5C3317;
+  box-shadow: 4px 4px 0 #2d1b00;
+  padding: 12px 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.flow-status-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  line-height: 1.8;
+  color: #88ccff;
+  text-align: center;
+}
+
+.game-instruction-card {
+  background: #0d1b2e;
+  background-image:
+    repeating-linear-gradient(
+      180deg,
+      rgba(46, 85, 132, 0.08) 0px,
+      rgba(46, 85, 132, 0.08) 4px,
+      rgba(13, 27, 46, 0.08) 4px,
+      rgba(13, 27, 46, 0.08) 8px
+    );
+  border: 4px solid #5C3317;
+  box-shadow: 4px 4px 0 #2d1b00;
+  width: 100%;
+  max-width: 360px;
+  margin-inline: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior: contain;
+}
+
+.game-instruction-card::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.game-instruction-card > * {
+  min-width: 0;
+}
+
+.flow-progress-shell {
+  width: 100%;
+  height: 18px;
+  background: #1a1a2e;
+  border: 3px solid #5C3317;
+  overflow: hidden;
+}
+
+.flow-progress-fill {
+  height: 100%;
+  background: #3e8948;
+}
+
+@media (max-height: 760px) {
+  .flow-page-shell {
+    padding-bottom: 184px;
+  }
+
+  .flow-fixed-footer {
+    gap: 8px;
+    width: min(calc(100% - 24px), 372px);
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    overflow: visible;
+  }
+
+  .flow-guide-footer {
+    top: 80px;
+    bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .flow-cta {
+    min-height: 52px;
+    font-size: 12px;
+    padding: 12px 16px;
+  }
+}
